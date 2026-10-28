@@ -30,10 +30,10 @@
     pairs: 34, turns: 2.1, tilt: -0.1, speed: 0.22, scrollSpin: true,
     radius: function (w) { return Math.min(w * 0.4, 215); },
     length: function (w, h) { return h * 0.98; },
-    // a fita da frente passa por trás do rosto e na frente do suéter
+    // a fita da frente passa por trás da foto inteira (nunca cobre a Natália)
     avoid: function (x, y) {
       if (!photoBox) return false;
-      return x > photoBox.l && x < photoBox.r && y > photoBox.t && y < photoBox.t + (photoBox.b - photoBox.t) * 0.62;
+      return x > photoBox.l - 2 && x < photoBox.r + 2 && y > photoBox.t - 2 && y < photoBox.b + 2;
     }
   });
   measurePhoto();
